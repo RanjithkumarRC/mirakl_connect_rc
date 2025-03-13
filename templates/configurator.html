@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="include/css/bootstrap.min.css">
+    <link rel="stylesheet" href="include/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="include/js/bootstrap.bundle.min.js"></script>
+    <title>Mirakl Connect App</title>
+    </head>
+    <body>
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-1 px-3 mx-auto" href="#">RC Mirakl Connect</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </header>
+        <div class="container-fluid">
+            <div class="row">
+                <main>
+                    <div class="col-md-6 col-lg-8 mx-auto">
+                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+                        </div>
+                        <h1 class="h2 mb-5">Mirakl and BC Configurator Form</h1>
+                        <section>
+                            <form class="needs-validation" novalidate>
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <p class="section-title">Mirakl Credentials</p>
+                                        <div class="col-sm-12 mb-2">
+                                            <label class="form-label">Client ID</label>
+                                            <input type="text" class="form-control" id="mirakl_connect_client_id" placeholder="" value="" required>
+                                            <p class="mirakl_connect_client_id_error">Please enter the Client ID</p>
+                                        </div>
+                                        <div class="col-sm-12 mb-2">
+                                            <label class="form-label">Client secret</label>
+                                            <input type="text" class="form-control" id="mirakl_connect_client_secret" placeholder="" value="" required>
+                                            <p class="mirakl_connect_client_secret_error">Please enter the Client secret</p>
+                                        </div>
+                                        <div class="col-sm-12 mb-2">
+                                            <label class="form-label">Seller company ID</label>
+                                            <input type="text" class="form-control" id="mirakl_connect_seller_company_id" placeholder="" value="" required>
+                                            <p class="mirakl_connect_seller_company_id_error">Please enter the Mirakl Front API Key</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 mb-2">
+                                        <button class="btn btn-primary frm_btn mt_14 check_mirakl_connection" type="submit">Connection Check</button>
+                                        <p class="connection_check_status"></p>
+                                    </div>
+                                </div>                           
+                            </form>
+                        </section>
+                        <hr class="my-4">
+                        <section>
+                            <input type="hidden" id="cust_data" name="cust_data" value="{{encode_storehash}}">
+                            <form class="needs-validation crdentilas__field" novalidate>
+                                <div class="row g-3">
+                                    <div class="col-sm-6">
+                                        <p class="section-title">Bigcommerce Credentials</p>
+                                        <div class="col-sm-12 mb-2">
+                                            <label class="form-label">StoreHash</label>
+                                            <input type="text" class="form-control" id="bc_storehash" value="{{storeHash}}" disabled>
+                                        </div>
+                                        <div class="col-sm-12 mb-2">
+                                            <label class="form-label">Access Token</label>
+                                            <input type="text" class="form-control" id="bc_accesstoken" value="{{accesstoken}}" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" class="is_mirakl_credentials_valid" value="false">
+                                <button class="btn btn-primary btn-lg frm_btn mt-4 save_credentials" disabled type="submit">Save Credentails</button>
+                            </form>
+                        </section>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <footer class="border-top footer" style="position:relative;">
+            <p class="text-center text-muted">Copyright ©2023 Royal Cyber Inc. All Rights Reserved.</p>
+        </footer>
+    </body>
+    <script>
+        $(document).ready(function(){
+            var cust_data = $('#cust_data').val();
+            $(".check_mirakl_connection").on("click",function(e){
+                e.preventDefault();
+                $(".connection_check_status").text("");
+                $(".connection_check_status").removeClass("success");
+                $(".connection_check_status").removeClass("error");
+                $(".mirakl_connect_client_id_error, .mirakl_connect_client_secret_error, .mirakl_connect_seller_company_id_error").css("display", "none");
+                var mirakl_connect_client_id            = $("#mirakl_connect_client_id").val();
+                var mirakl_connect_client_secret        = $("#mirakl_connect_client_secret").val();
+                var mirakl_connect_seller_company_id    = $("#mirakl_connect_seller_company_id").val();
+                
+                if(mirakl_connect_client_id == ''){
+                    $(".mirakl_connect_client_id_error").css("display","block");
+                }else{
+                    $(".mirakl_connect_client_id_error").css("display","none");
+                }
+                if(mirakl_connect_client_secret == ''){
+                    $(".mirakl_connect_client_secret_error").css("display","block");
+                }else{
+                    $(".mirakl_connect_client_secret_error").css("display","none");
+                }
+                if(mirakl_connect_seller_company_id == ''){
+                    $(".mirakl_connect_seller_company_id_error").css("display","block");
+                }else{
+                    $(".mirakl_connect_seller_company_id_error").css("display","none");
+                }
+
+                if(mirakl_connect_client_id != '' && mirakl_connect_client_secret != '' && mirakl_connect_seller_company_id != ''){
+                    $.post("ajax/connection_check.php",
+                    {
+                        mirakl_connect_client_id: mirakl_connect_client_id,
+                        mirakl_connect_client_secret: mirakl_connect_client_secret,
+                        mirakl_connect_seller_company_id: mirakl_connect_seller_company_id
+                    },
+                    function(data, status){
+                        if(data == 'Authorized'){
+                            $(".save_credentials").removeAttr("disabled");
+                            $(".connection_check_status").text("Valid Credentials");
+                            $(".connection_check_status").addClass("success");
+                            $(".is_mirakl_credentials_valid").val("true");
+                        }else{
+                            $(".save_credentials").attr("disabled","true");
+                            $(".connection_check_status").text("Invalid Credentials");
+                            $(".connection_check_status").addClass("error");
+                            $(".is_mirakl_credentials_valid").val("false");
+                        }
+                    });
+                }
+            });
+
+            $(".save_credentials").on("click",function(e){
+                e.preventDefault();
+                if($(".is_mirakl_credentials_valid").val() == "true"){
+                    var mirakl_connect_client_id            = $("#mirakl_connect_client_id").val();
+                    var mirakl_connect_client_secret        = $("#mirakl_connect_client_secret").val();
+                    var mirakl_connect_seller_company_id    = $("#mirakl_connect_seller_company_id").val();
+
+                    if(mirakl_connect_client_id == ''){
+                        $(".mirakl_connect_client_id_error").css("display","block");
+                    }else{
+                        $(".mirakl_connect_client_id_error").css("display","none");
+                    }
+                    if(mirakl_connect_client_secret == ''){
+                        $(".mirakl_connect_client_secret_error").css("display","block");
+                    }else{
+                        $(".mirakl_connect_client_secret_error").css("display","none");
+                    }
+                    if(mirakl_connect_seller_company_id == ''){
+                        $(".mirakl_connect_seller_company_id_error").css("display","block");
+                    }else{
+                        $(".mirakl_connect_seller_company_id_error").css("display","none");
+                    }
+                    
+                    if(mirakl_connect_client_id != '' && mirakl_connect_client_secret != '' && mirakl_connect_seller_company_id != ''){
+                        $.post("ajax/save_credentails.php",
+                        {
+                            mirakl_connect_client_id: mirakl_connect_client_id,
+                            mirakl_connect_client_secret: mirakl_connect_client_secret,
+                            mirakl_connect_seller_company_id: mirakl_connect_seller_company_id,
+                            bc_storehash: '{{storeHash}}',
+                            bc_accesstoken: '{{accesstoken}}',
+                        },
+                        function(data, status){
+                            if(data == 'Record updated successfully'){
+                                window.location.href = "dashboard?data="+cust_data;
+                            }
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</html>

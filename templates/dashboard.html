@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <link rel="stylesheet" href="include/css/bootstrap.min.css">
+        <link rel="stylesheet" href="include/css/style.css">
+
+        <script src="include/js/bootstrap.bundle.min.js"></script>
+        <script src="include/js/jquery.min.js"></script>
+        <script src="include/js/bootstrap.min.js"></script>
+        <script src="include/js/script.js"></script>
+        <title>Mirakl Connect App</title>
+    </head>
+    <body class="footer-fixed">
+        <div class="main-wrapper cust_loader cust_loader_off">
+          <button class="btn btn-primary" type="button" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Loading...
+          </button>
+        </div>
+        <div class="db__wraper" id="body-pd">
+            <header class="header" id="header">
+              <div class="header_toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+              </div>
+              <div class="header_toggle">
+                <a href="dashboard?data={{storehash}}">RC Mirakl Connect</a>
+              </div>
+              <div class="header_img">
+                <a href="settings?data={{storehash}}">
+                  <i class='bx bxs-cog'></i>
+                </a>
+              </div>
+            </header>
+            <div class="l-navbar" id="nav-bar">
+              <nav class="nav">
+                <div>
+                  <div class="nav_list">
+                    <a href="product-sync-BCtoMirakl?data={{storehash}}" class="nav_link">
+                      <i class='bx bx-cube'></i>
+                      <span class="nav_name">Product-sync</span>
+                    </a>
+                    <a href="order-sync-BCtoMirakl?data={{storehash}}" class="nav_link">
+                      <i class='bx bx-cart-add'></i>
+                      <span class="nav_name">Order-sync</span>
+                    </a>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            <!--Container Main start-->
+            <main class="col-md-11 ms-sm-auto col-lg-12 px-md-1">
+              <input type="hidden" id="cust_data" name="cust_data" value="{{storehash}}">
+              <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Dashboard</h1>
+                <div class="guide-link">
+                  <a class="btn btn-primary installation-guide-btn" href="https://apps.royalcyber.org/mirakl_connect_rc/installation-guide.html" target="_blank">Installation Guide</a>
+                  <a class="btn btn-primary user-guide-btn" href="https://apps.royalcyber.org/mirakl_connect_rc/user-guide.html" target="_blank" style="margin-left:5px;">User Guide</a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-12 col-lg-12">
+                  <div class="row">
+                    <!-- Product -->
+                    <div class="col-sm-6 mb-3 col-lg-4">
+                      <div class="card widget-flat">
+                          <div class="card-body p-md-4 py-5">
+                            <div class="float-start mt-1">
+                              <i class='bx bx-cube bx-sm widget--icon widget--icon--c'></i>
+                            </div>
+                            <div class="widget--title float-start px-4">
+                              <h5 class="text-muted fw-normal" title="Number of Customers">Total Products</h5>
+                              <h3>Products</h3>
+                            </div>
+                          </div>
+                          <div class="card-foot pb-md-4">
+                            <a href="product-sync-BCtoMirakl?data={{storehash}}" class="card_go__btn">
+                              <span>Go to Products</span>
+                            </a>
+                            <div class="count_no text-muted">
+                              <span>Count</span>
+                              <p>{{product_count}}</p>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                    <!-- End Product -->
+                    <!-- Order -->
+                    <div class="col-sm-6 mb-3 col-lg-4">
+                      <div class="card widget-flat">
+                        <div class="card-body p-md-4 py-5">
+                          <div class="float-start mt-1">
+                            <i class='bx bx-cart-add bx-sm widget--icon widget--icon--c'></i>
+                          </div>
+                          <div class="widget--title float-start px-4">
+                            <h5 class="text-muted fw-normal" title="Number of Customers">Total Orders</h5>
+                            <h3>Orders</h3>
+                          </div>
+                        </div>
+                        <div class="card-foot pb-md-4">
+                          <a href="order-sync-BCtoMirakl?data={{storehash}}" class="card_go__btn">
+                            <span>Go to Orders</span>
+                          </a>
+                          <div class="count_no text-muted">
+                            <span>Count</span>
+                            <p>{{orders_count}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- End Order -->
+                  </div>
+                </div>
+              </div>
+            </main>
+        </div>
+        <footer class="border-top footer">
+            <p class="text-center text-muted">Copyright ©2023 Royal Cyber Inc. All Rights Reserved.</p>
+        </footer>
+    </body>
+</html>

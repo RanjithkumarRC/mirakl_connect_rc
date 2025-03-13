@@ -1,0 +1,80 @@
+CREATE DATABASE mirakl_connect;
+
+/* Create table script - tbl_stores */
+/* Beging */
+
+CREATE TABLE `tbl_stores` (
+  `tbl_stores_id` int(11) NOT NULL AUTO_INCREMENT,
+  `storehash` varchar(50) NOT NULL,
+  `bc_store_id` varchar(50) NOT NULL,
+  `bc_store_url` varchar(256) DEFAULT NULL,
+  `access_token` varchar(256) NOT NULL,
+  `username` varchar(256) NOT NULL,
+  `email` varchar(256) NOT NULL,
+  `account_uuid` varchar(256) NOT NULL,
+  `mirakl_client_id` text DEFAULT NULL,
+  `mirakl_client_secret` text DEFAULT NULL,
+  `mirakl_seller_company_id` text DEFAULT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `is_deleted` tinyint(1) NOT NULL,
+  `created_at` varchar(50) NOT NULL,
+  `updated_at` varchar(50) NOT NULL,
+  PRIMARY KEY (`tbl_stores_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1
+
+/* end */
+
+/* Create table script - tbl_mirakl_connect_orders */
+/* Beging */
+
+CREATE TABLE `tbl_mirakl_connect_orders` (
+  `tbl_mirakl_connect_orders_id` int(11) NOT NULL AUTO_INCREMENT,
+  `mirakl_order_id` varchar(256) NOT NULL,
+  `mirakl_order_status` varchar(256) NOT NULL,
+  `tbl_stores_id` int(11) DEFAULT NULL,
+  `sync_status_bc` varchar(50) DEFAULT NULL,
+  `sync_status_mirakl` varchar(50) DEFAULT NULL,
+  `is_update_mirakl` int(1) DEFAULT '0',
+  `updated_at_mirakl` varchar(256) DEFAULT NULL,
+  `bc_order_id` varchar(50) DEFAULT NULL,
+  `bc_order_status` varchar(256) DEFAULT NULL,
+  `marketplace_name` varchar(256) DEFAULT NULL,
+  `updated_at_bc` varchar(256) DEFAULT NULL,
+  `is_update_bc` int(1) DEFAULT '0',
+  `created_at` varchar(50) NOT NULL,
+  PRIMARY KEY (`tbl_mirakl_connect_orders_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1
+
+/* end */
+
+/* Create table script - tbl_bc_mirakl_products */
+/* Beging */
+
+CREATE TABLE `tbl_bc_mirakl_products` (
+  `tbl_bc_mirakl_product_id` int(11) NOT NULL AUTO_INCREMENT,
+  `mirakl_product_id` varchar(256) DEFAULT NULL,
+  `product_name` varchar(256) NOT NULL,
+  `product_sku` varchar(256) NOT NULL,
+  `bc_product_id` int(50) NOT NULL,
+  `category_code` varchar(256) DEFAULT NULL,
+  `price` varchar(256) DEFAULT NULL,
+  `discount_price` varchar(256) DEFAULT NULL,
+  `main_image` varchar(256) DEFAULT NULL,
+  `tbl_stores_id` int(11) DEFAULT NULL,
+  `mirakl_product_vgc` varchar(256) DEFAULT NULL,
+  `is_variant` int(1) DEFAULT '0',
+  `variant_sku` varchar(256) DEFAULT NULL,
+  `variant_id` varchar(256) DEFAULT NULL,
+  `sync_status` varchar(256) DEFAULT NULL,
+  `is_update` int(1) DEFAULT '0',
+  `is_error` int(1) DEFAULT '0',
+  `is_active` tinyint(1) NOT NULL,
+  `is_deleted` tinyint(1) NOT NULL,
+  `created_at` varchar(256) NOT NULL,
+  `updated_at` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`tbl_bc_mirakl_product_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=latin1
+
+ALTER table tbl_bc_mirakl_products ADD COLUMN inventory_level int(100) DEFAULT '0' after discount_price;
+
+/* end */

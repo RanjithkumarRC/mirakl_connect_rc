@@ -1,0 +1,447 @@
+/* PDP Variant Option */
+.oth__seller_ctn{
+    width: 100%;
+    margin-bottom:3rem;
+}
+.oth_seller__row{
+    border-top: 1px solid rgb(163, 162, 162);
+    padding: 1rem .5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+    
+.sellership_price{
+    font-size:21px;
+    font-weight: bold;
+}
+.ship_chg{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+.ship_chg > span{
+    color:#b4b4b4;
+}
+.info__pro_condition{
+    width:23%;
+    text-align: center;
+}
+.info__pro_condition > p{
+    margin-bottom: 0;
+}
+
+.info___seller{
+    width: 100%;
+}
+.info__qty_seller{
+    width:32%;
+}
+
+.qnt_frm{
+    font-size:15px;
+}
+.qty_fill{
+    width: 35px;
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 5px;
+}
+.sellername, .offerid{
+    display: flex;
+}
+.sellername > p{
+    margin-bottom: 0;
+    padding-right: 8px;
+}
+.sellername > p:last-child{
+    padding-right: 0;
+    font-weight: 600;
+}
+
+.oth_seller_atc{
+    display: flex;
+    align-items: center;
+}
+
+.oth__addcartbtn{
+    margin-bottom: 0;
+    padding: 0.85714rem 1.28571rem !important;
+}
+.oth_tbheading___row{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    padding: .75rem .5rem;
+}
+.oth_headtitle{
+    font-weight: 600;
+    font-size: 1rem;
+}
+.tab-content .oth_seller__row > div{
+    flex: 1;
+}
+
+.productView-options .form-field {
+    font-size: 0;
+    margin-bottom: 1rem;
+}
+.productView-product {
+    padding-bottom: 0;
+}
+.productView-details {
+    padding-bottom: 0;
+}
+.productView-options {
+    height: auto;
+    width: 100%;
+    float: left;
+}
+.productView-details.product-options .socialLinks{margin-bottom: 3rem;}
+.option-MiraklOfferID, .option-SellerName{
+    display:none;
+}
+.productView-options .form .add-to-cart-wrapper{
+    display: none !important;
+}
+.productView .productView-details .productView-price{
+    display: none !important;
+}
+.text_red{
+    color: red;
+}
+.cart_change_option{
+    display: none;
+}
+body.modal-open {
+    overflow: hidden;
+}
+
+
+/* Mirakl Order Table */
+.date-cell {
+    width: 9%;
+}
+.topic-cell {
+    width: 21%;
+}
+.access-link-cell {
+    width: 9%;
+}
+.replay-link-cell {
+    width: 13%;
+}
+.shop-cell {
+    width: 9%;
+}
+.status-cell {
+    width: 13%;
+}
+.Rtable-date-cell {
+    font-size: 1rem;
+    text-transform: uppercase;
+    max-width: 100px;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.title_hd_btn {
+    background-color: #39afd1;
+    color: #fff;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 13px;
+}
+.listitem_tb {
+    width: 100%;
+}
+.Rtable {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+.Rtable .Rtable-row {
+    width: 100%;
+    display: flex;
+}
+.Rtable .Rtable-row .Rtable-cell {
+    box-sizing: border-box;
+    flex-grow: 1;
+    padding: 0.8rem 0.75rem;
+    overflow: hidden;
+    list-style: none;
+}
+.Rtable .Rtable-row .Rtable-cell .order__product_figure {
+    max-width: 70px;
+}
+.Rtable .Rtable-row .Rtable-cell.column-heading {
+    background-color: #444444;
+    color: white;
+    padding: 1em 0.75rem;
+    font-size: 0.97rem;
+}
+.Rtable .Rtable-row .Rtable-cell.column-data-heading {
+    background-color: #f0f0f0;
+    color: #444444;
+    padding: 1em 0.75rem;
+}
+.Rtable .Rtable-row .Rtable-cell .Rtable-cell--heading {
+    display: none;
+}
+.Rtable .Rtable-row .Rtable-cell .Rtable-cell--content a {
+    font-size: 1em;
+    color: #333;
+}
+.Rtable .Rtable-row .Rtable-cell .Rtable-cell--content .webinar-date {
+    font-weight: 700;
+}
+@media (max-width: 750px) {
+    .is-striped {
+        background-color: white;
+    }
+    .Rtable--collapse {
+        display: block;
+        width: 100%;
+        padding: 1em;
+        box-shadow: none;
+    }
+    .Rtable--collapse .Rtable-row {
+        box-sizing: border-box;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 2em;
+    }
+    .Rtable--collapse .Rtable-row .Rtable-cell {
+        width: 100% !important;
+        display: flex;
+        align-items: center;
+    }
+    .Rtable--collapse .Rtable-row .Rtable-cell .Rtable-cell--heading {
+        display: inline-block;
+        flex: 1;
+        max-width: 120px;
+        min-width: 120px;
+        color: #444444;
+        font-weight: 700;
+        border-right: 1px solid #ccc;
+        margin-right: 1em;
+    }
+    .Rtable--collapse .Rtable-row .Rtable-cell .Rtable-cell--content {
+        flex: 2;
+        padding-left: 1em;
+    }
+    .Rtable--collapse .topic-cell {
+        background-color: #444444;
+        color: white;
+        font-weight: 700;
+        order: -1;
+    }
+    .Rtable--collapse .topic-cell .Rtable-cell--content {
+        padding-left: 0 !important;
+    }
+    .Rtable--collapse .Rtable-row--head {
+        display: none;
+    }
+}
+.no-flexbox .Rtable {
+    display: block;
+}
+.no-flexbox .Rtable.Rtable-cell {
+    width: 100%;
+}
+.green-bg {
+    background-color: #ddead1;
+}
+a.cust_orderDetail_popup {
+    display: block;
+    padding: 0.1rem 0.75rem;
+}
+.ship_mth_ctn {
+    margin-top: 1.5rem;
+}
+.ship_mth_ctn p {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+/* End Mirakl Order Table */
+
+
+/*Mirak Order-Detail Modal*/
+.mirakl_modal-box {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    width: 61.35%;
+    background: white;
+    border-bottom: 1px solid #aaa;
+    border-radius: 4px;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-clip: padding-box;
+    left: 293.488px !important;
+}
+.mirakl_modal-box header, .mirakl_modal-box .modal-header {
+    padding: 1.25em 1.5em;
+    border-bottom: 1px solid #ddd;
+}
+.mirakl_modal-box header h3, .mirakl_modal-box header h4, .mirakl_modal-box .modal-header h3, .mirakl_modal-box .modal-header h4 {
+    margin: 0;
+}
+.mirakl_modal-box .mirakl_modal-body {
+    padding: 2em 1.5em;
+    display: flex;
+}
+.ord_modal_shipp_dt {
+    font-size: 1.05rem;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    margin-top: 0.35rem;
+}
+.ord_modal_shipp_dt span {
+    margin-right: 5px;
+}
+.ord_modal_shipp_dt p {
+    margin-bottom: 0;
+}
+.mirakl_modal-body section {
+    width: 50%;
+}
+.mirakl_modal-body section h4 {
+    margin-top: 0;
+    font-weight: 500;
+}
+.mirakl_modal-body section .display_shipadd ul {
+    padding: 0 1rem;
+}
+.mirakl_modal-body section .display_shipadd, .mirakl_modal-body section .ords_itms {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.mirakl_modal-body section .display_shipadd li, .mirakl_modal-body section .ords_itms li {
+    font-size: 1.1rem;
+    padding: 0.15rem 0;
+}
+.mirakl_modal-body section .line_orders_row {
+    margin-bottom: 0.75rem;
+    padding: 1rem 3rem 0 3rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+.mirakl_modal-body section .line_orders_row p {
+    margin-bottom: 0;
+}
+.mirakl_modal-body section .coun_totalshptax {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 3rem 0 3rem;
+    margin: 0;
+    list-style: none;
+    border-top: 1px solid #ddd;
+}
+.mirakl_modal-body section .coun_totalshptax li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.mirakl_modal-body section .coun_totalshptax li p {
+    margin-bottom: 0;
+}
+.mirakl_modal-box footer, .mirakl_modal-box .modal-footer {
+    padding: 1em;
+    border-top: 1px solid #ddd;
+    background: rgba(0, 0, 0, 0.02);
+    text-align: right;
+}
+.mod_modal-overlay {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95) !important;
+}
+a.close {
+    line-height: 1;
+    font-size: 1.5em;
+    position: absolute;
+    top: 10%;
+    right: 2%;
+    text-decoration: none;
+    color: #bbb;
+}
+a.close:hover {
+    color: #222;
+    -webkit-transition: color 1s ease;
+    -moz-transition: color 1s ease;
+    transition: color 1s ease;
+}
+    .line_orderdtl_clm {
+    height: 290px;
+    overflow-y: scroll;
+}
+.cust_orderDetail_popup > button {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 0.3rem 0.5rem;
+}
+body.modal-open {
+    overflow: hidden;
+} 
+/*Mirak Order-Detail Modal*/
+
+/* Cart page begin */
+.cust-form-increment .button {
+    margin: 0;
+    padding: .21429rem .35714rem;
+}
+
+.cart-item-quantity .cust-form-increment{
+    display: inline-block;
+    margin: 0 .21429rem 1px 1.5rem;
+    vertical-align: middle;
+}
+/* Cart page end */
+
+@media only screen and (min-width: 801px) {
+    .account--fixed {
+        margin: 0 auto;
+        width: 86.66667%;
+    }
+
+    .cart-item-quantity .cust-form-increment{
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .oth_seller__row{
+        flex-direction: row;
+    }
+    .info__pro_condition{
+        width:100%;
+    }
+    .info__qty_seller{
+        width:100%;
+    }
+    .oth_seller_atc{
+        margin-top: 0;
+    }
+    .oth_headtitle{
+        flex: 1;
+    }
+    
+}
